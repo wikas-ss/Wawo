@@ -1,0 +1,21 @@
+name: Build Astral FPS Optimizer
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Geode mod
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Geode CLI
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install geode-sdk
+
+      - name: Build mod
+        run: geode build
